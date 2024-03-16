@@ -30,7 +30,7 @@ function playGame() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt('Rock, paper or cissors ?')
+        let playerSelection = playerInput();
         let roundResult = playRound(playerSelection, getComputerChoice());
         if (roundResult[0] === "player") { playerScore++; }
         else if (roundResult[0] === "computer") { computerScore++; }
@@ -43,6 +43,14 @@ function playGame() {
     } else {
         console.log("It's a tie game!");
     }
+}
+
+function playerInput() {
+    let input = prompt('Rock, paper or cissors ?').toLocaleLowerCase();
+    while (input !== "rock" && input !== "paper" && input !== "cissors") {
+        input = prompt('Please choose between rock, paper or cissors ?').toLocaleLowerCase();
+    }
+    return input;
 }
 
 playGame();
