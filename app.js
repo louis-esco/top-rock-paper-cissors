@@ -30,7 +30,7 @@ function playGame() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
-        let playerSelection = playerInput();
+        let playerSelection = checkPlayerInput();
         let roundResult = playRound(playerSelection, getComputerChoice());
         if (roundResult[0] === "player") { playerScore++; }
         else if (roundResult[0] === "computer") { computerScore++; }
@@ -39,7 +39,7 @@ function playGame() {
     displayResult();
 }
 
-function playerInput() {
+function checkPlayerInput() {
     let input = prompt('Rock, paper or cissors ?').toLocaleLowerCase();
     while (input !== "rock" && input !== "paper" && input !== "cissors") {
         input = prompt('Please choose between rock, paper or cissors ?').toLocaleLowerCase();
