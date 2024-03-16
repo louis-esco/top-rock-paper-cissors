@@ -1,4 +1,4 @@
-// Gets and random computer choice
+// Gets a random computer choice
 function getComputerChoice() {
     const options = ['Rock', 'Paper', 'Cissors'];
     let randNum = Math.floor(Math.random() * 3);
