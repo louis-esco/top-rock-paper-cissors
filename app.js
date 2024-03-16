@@ -10,20 +10,39 @@ function playRound(playerSelection, computerSelection) {
     let computerSelect = computerSelection.toLocaleLowerCase();
 
     if (playerSelect === computerSelect) {          // Tie game case
-        return "It's a tie game!";
+        return ['tie', "It's a tie game!"];
 
     } else if (                                     // Player wins cases
         playerSelect === "rock" && computerSelect === "cissors" ||
         playerSelect === "paper" && computerSelect === "rock" ||
         playerSelect === "cissors" && computerSelect === "paper") {
-        return `You win, ${playerSelect} beats ${computerSelect}!`
+        return ['player', `You win, ${playerSelect} beats ${computerSelect}!`];
 
     } else if (                                 // Computer wins cases
         playerSelect === "rock" && computerSelect === "paper" ||
         playerSelect === "paper" && computerSelect === "cissors" ||
         playerSelect === "cissors" && computerSelect === "rock") {
-        return `You loose, ${computerSelect} beats ${playerSelect}!`
+        return ['computer', `You loose, ${computerSelect} beats ${playerSelect}!`];
     }
 }
 
-console.log(playRound('ROck', getComputerChoice()));
+function playGame() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt('Rock, paper or cissors ?')
+        let roundResult = playRound(playerSelection, getComputerChoice());
+        if (roundResult[0] === "player") { playerScore++; }
+        else if (roundResult[0] === "computer") { computerScore++; }
+        console.log(roundResult[1]);
+    }
+    if (playerScore > computerScore) {
+        console.log(`Player wins ${playerScore} to ${computerScore}.`);
+    } else if (playerScore < computerScore) {
+        console.log(`Computer wins ${computerScore} to ${playerScore}.`);
+    } else {
+        console.log("It's a tie game!");
+    }
+}
+
+playGame();
