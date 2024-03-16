@@ -1,3 +1,4 @@
+// Gets and random computer choice
 function getComputerChoice() {
     const options = ['Rock', 'Paper', 'Cissors'];
     let randNum = Math.floor(Math.random() * 3);
@@ -5,6 +6,7 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+// Plays a round and returns an array with winner and message to console.log
 function playRound(playerSelection, computerSelection) {
     let playerSelect = playerSelection.toLocaleLowerCase();
     let computerSelect = computerSelection.toLocaleLowerCase();
@@ -26,6 +28,27 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+// Checks that user input is valid
+function checkPlayerInput() {
+    let input = prompt('Rock, paper or cissors ?').toLocaleLowerCase();
+    while (input !== "rock" && input !== "paper" && input !== "cissors") {
+        input = prompt('Please choose between rock, paper or cissors ?').toLocaleLowerCase();
+    }
+    return input;
+}
+
+// console.logs result
+function displayResult(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+        console.log(`Player wins ${playerScore} to ${computerScore}.`);
+    } else if (playerScore < computerScore) {
+        console.log(`Computer wins ${computerScore} to ${playerScore}.`);
+    } else {
+        console.log("It's a tie game, no one wins!");
+    }
+}
+
+// Plays a five rounds game
 function playGame() {
     let playerScore = 0;
     let computerScore = 0;
@@ -39,22 +62,4 @@ function playGame() {
     displayResult();
 }
 
-function checkPlayerInput() {
-    let input = prompt('Rock, paper or cissors ?').toLocaleLowerCase();
-    while (input !== "rock" && input !== "paper" && input !== "cissors") {
-        input = prompt('Please choose between rock, paper or cissors ?').toLocaleLowerCase();
-    }
-    return input;
-}
-
-function displayResult(playerScore, computerScore) {
-    if (playerScore > computerScore) {
-        console.log(`Player wins ${playerScore} to ${computerScore}.`);
-    } else if (playerScore < computerScore) {
-        console.log(`Computer wins ${computerScore} to ${playerScore}.`);
-    } else {
-        console.log("It's a tie game, no one wins!");
-    }
-}
-
-playGame();
+// playGame();
