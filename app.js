@@ -57,9 +57,9 @@ function playGame() {
         let roundResult = playRound(playerSelection, getComputerChoice());
         if (roundResult[0] === "player") { playerScore++; }
         else if (roundResult[0] === "computer") { computerScore++; }
-        console.log(roundResult[1]);
+        console.log(`Round ${i + 1}: ${roundResult[1]}`);
     }
     displayResult();
 }
 
-// playGame();
+playGame();
