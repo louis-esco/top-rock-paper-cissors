@@ -12,7 +12,7 @@ rockBtn.addEventListener('click', () => { playRound('rock', getComputerChoice())
 paperBtn.addEventListener('click', () => { playRound('paper', getComputerChoice()) })
 scissorsBtn.addEventListener('click', () => { playRound('scissors', getComputerChoice()) })
 
-// Gets a random computer choice
+// Gets a random computer choice.
 function getComputerChoice() {
     const options = ['Rock', 'Paper', 'Scissors'];
     let randNum = Math.floor(Math.random() * 3);
